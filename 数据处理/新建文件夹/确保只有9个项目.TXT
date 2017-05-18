@@ -1,0 +1,8 @@
+Private Sub CommandButton1_Click()
+Dim a As Long
+For a = 1 To 1000
+If Sheet1.Cells(9 * a - 8, 16) <> Sheet1.Cells(9 * a + 1, 16) Then
+TextBox1.Text = a
+End If
+Next a
+End Sub

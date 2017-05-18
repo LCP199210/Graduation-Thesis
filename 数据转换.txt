@@ -1,0 +1,44 @@
+Private Sub CommandButton1_Click()
+Dim i As Long
+For i = 1 To 4000
+If Sheet1.Cells(9 * i - 8, 3) = Sheet1.Cells(9 * i + 1, 3) Then
+TextBox1.Text = TextBox1.Text & "," & i
+End If
+Next i
+End Sub
+
+Private Sub CommandButton2_Click()
+Dim a, b As Long
+'在表2的第一行输入列标题
+Sheet2.Cells(1, 1) = "Name"
+Sheet2.Cells(1, 2) = "Sexual"
+Sheet2.Cells(1, 3) = "Age"
+Sheet2.Cells(1, 4) = "Date"
+Sheet2.Cells(1, 5) = "No.ID"
+Sheet2.Cells(1, 6) = "Sample-State"
+Sheet2.Cells(1, 7) = "hsCRP"
+Sheet2.Cells(1, 8) = "TC"
+Sheet2.Cells(1, 9) = "TG"
+Sheet2.Cells(1, 10) = "HDL-C"
+Sheet2.Cells(1, 11) = "LDL-C"
+Sheet2.Cells(1, 12) = "Apo-A1"
+Sheet2.Cells(1, 13) = "Apo-B"
+b = 2 '从第二行开始录入数据
+'从表1中提取数据
+For a = 0 To 10000                                '创建一个9步的循环，分别提取6项基本信息和7个项目结果
+Sheet2.Cells(b, 1) = Sheet1.Cells(a * 9 + 1, 4)   '9a+1行第4位填充到第一列——姓名
+Sheet2.Cells(b, 2) = Sheet1.Cells(a * 9 + 1, 10)  '9a+1行第10位填充到第二列——性别
+Sheet2.Cells(b, 3) = Sheet1.Cells(a * 9 + 1, 11)  '9a+1行第11位填充到第三列——年龄
+Sheet2.Cells(b, 4) = Sheet1.Cells(a * 9 + 1, 1)   '9a+1行第一位填充到第四列——日期
+Sheet2.Cells(b, 5) = Sheet1.Cells(a * 9 + 1, 3)   '9a+1行第3位填充到第五列——样本号
+Sheet2.Cells(b, 6) = Sheet1.Cells(a * 9 + 1, 9)   '9a+1行第9位填充到第六列——样本状态
+Sheet2.Cells(b, 7) = Sheet1.Cells(a * 9 + 1, 6)   '9a+1行第6位填充到第七列——hsCRP，下同
+Sheet2.Cells(b, 8) = Sheet1.Cells(a * 9 + 2, 6)   'TC
+Sheet2.Cells(b, 9) = Sheet1.Cells(a * 9 + 3, 6)   'TG
+Sheet2.Cells(b, 10) = Sheet1.Cells(a * 9 + 4, 6)  'HDL-C
+Sheet2.Cells(b, 11) = Sheet1.Cells(a * 9 + 5, 6)  'LDL-C
+Sheet2.Cells(b, 12) = Sheet1.Cells(a * 9 + 8, 6)  'Apo-A1
+Sheet2.Cells(b, 13) = Sheet1.Cells(a * 9 + 9, 6)  'Apo-B
+b = b + 1                                         '让b在数值上加1，保证下一次循环的时候表2切换到下一行
+Next a                                            '下一轮循环
+End Sub

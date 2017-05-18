@@ -1,0 +1,21 @@
+Private Sub CommandButton1_Click()
+Dim i As Long
+For i = 0 To 1358
+If Sheet1.Cells(9 * i + 1, 5) <> "hsCRP" Then
+TextBox1.Text = TextBox1.Text & "," & 9 * i + 1 & "hsCRP"
+    ElseIf Sheet1.Cells(9 * i + 2, 5) <> "TC" Then
+    TextBox1.Text = TextBox1.Text & "," & 9 * i + 2 & "TC"
+        ElseIf Sheet1.Cells(9 * i + 3, 5) <> "TG" Then
+        TextBox1.Text = TextBox1.Text & "," & 9 * i + 3 & "TG"
+            ElseIf Sheet1.Cells(9 * i + 4, 5) <> "HDL-C" Then
+            TextBox1.Text = TextBox1.Text & "," & 9 * i + 4 & "HDL-C"
+                ElseIf Sheet1.Cells(9 * i + 5, 5) <> "LDL-C" Then
+                TextBox1.Text = TextBox1.Text & "," & 9 * i + 5 & "LDL-C"
+                    ElseIf Sheet1.Cells(9 * i + 8, 5) <> "APO-A1" Then
+                    TextBox1.Text = TextBox1.Text & "," & 9 * i + 8 & "Apo-A1"
+                        ElseIf Sheet1.Cells(9 * i + 9, 5) <> "APO-B" Then
+                        TextBox1.Text = TextBox1.Text & "," & 9 * i + 9 & "Apo-B"
+End If
+Next i
+        
+End Sub
